@@ -4,6 +4,9 @@
     padding: 0;
     margin: 0;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -15,6 +18,18 @@ body {
     padding: 0 55px;
     max-width: 1219px;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+#menuIcon {
+    width: 32px;
+    height: 32px;
+    background: url('../images/menu.svg') center no-repeat;
+    background-size: cover;
+    transition: all .5s ease-in-out;
 }
 
 /* Шапка */
@@ -37,13 +52,13 @@ header {
     display: inline-block;
 }
 
-.menu {
+.topnav {
     display: flex;
     align-self: center;
     justify-content: center;
 }
 
-.menu a {
+.topnav a {
     padding: 0 10px;
     text-decoration: none;
     font-style: normal;
@@ -54,12 +69,16 @@ header {
     transition: all .5s ease-in-out;
 }
 
-.menu a:hover {
+.menu-icon {
+    display: none;
+}
+
+.topnav a:hover {
     color: rgb(255, 213, 24);
     letter-spacing: .5px;
 }
 
-.menu a:nth-child(2) {
+.topnav a:nth-child(2) {
     border-right: 2px solid #fff;
     border-left: 2px solid #fff;
 }
@@ -87,7 +106,7 @@ header {
 /* Секция 2 */
 .problem {
     margin-top: 84px;
-    padding-top: 48px;
+    padding-top: 84px;
     padding-bottom: 92px;
     background: #eee;
 }
@@ -138,7 +157,7 @@ header {
 
 .introduction {
     background: #fff;
-    padding-top: 48px;
+    padding-top: 84px;
     padding-bottom: 92px;
 }
 
@@ -164,9 +183,10 @@ header {
 
 /* Команда */
 .team {
-    padding-top: 48px;
+    padding-top: 84px;
     padding-bottom: 40px;
     background: #eee;
+    text-align: center;
 }
 
 .team .wrapper {
@@ -177,17 +197,12 @@ header {
     margin-bottom: 56px;
 }
 
-.team .container-flex {
-    flex-wrap: wrap;
-}
-
-.team-member {
+.container-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 82px;
     margin-bottom: 82px;
-    text-align: center;
-}
-
-.team-member:not(:nth-child(3n)) {
-    margin-right: 130px;
 }
 
 .team-member h4 {
@@ -224,4 +239,112 @@ footer p {
 
 @media screen and (max-width: 1200px) {
     .section-text {text-align: justify;}
+}
+
+@media screen and (max-width: 978px) {
+    .team .wrapper {
+        padding: 0 55px;
+    }
+}
+
+
+@media screen and (max-width: 760px) {
+    .wrapper {
+        padding: 0 35px !important;
+    }
+
+    .topnav a{
+        display: none;
+    }
+
+     a.menu-icon{
+        float:right;
+        display: block;
+        color:#fff;
+        font-size: 25px;
+    }
+
+    .topnav.responsive{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute ;
+        z-index: 1000;
+        top: 84px;
+        right: 0px;
+        width: 100%;
+        height: calc(100vh - 84px) ;
+        /* height: 155vh; */
+        background: #2b2b2af3;
+        transition: all .5s ease-in-out;
+    }
+
+    .topnav.responsive a {
+        display: block;
+        margin-bottom: 15vmin;
+        font-size: 7vmin;
+    }
+
+     a.menu-icon{
+         align-self: center;
+    }
+
+    .topnav.responsive a{
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .section-first h2 {
+        font-size: 10vmin;
+    }
+
+    .section-title {
+        font-size: 9vmin;
+    }
+
+    .problem p, .introduction p {
+        font-size: 5vmin;
+    }
+
+    .hero h2 {
+        font-size: 7vmin;
+        line-height: 8vmin;
+    }
+
+    .introduction img {
+        width: 17vmin;
+        margin-right: 6vmin;
+    }
+
+    .introduction .container-flex {
+        margin-bottom: 4vmin;
+    }
+
+    .container-grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 6vmin;
+        grid-column-gap: 1vmin;
+        margin-bottom: 8vmin;
+    }
+
+    footer p  {
+        font-size: 3vmin;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .container-grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-row-gap: 6vmin;
+        grid-column-gap: 1vmin;
+        margin-bottom: 8vmin;
+    }
 }
